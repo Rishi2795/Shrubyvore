@@ -39,4 +39,4 @@ The platform provides users with educational material such as gardening tips, ma
 Key Goals for the Greenify Website:
 User-Friendly Navigation: Ensure smooth transitions between pages like registration, login, home, and plant options.
 Personalized Experience: Allow users to save their favorite plants and gardening content for future reference.
-Comprehensive Plant Information: Provide detailed descriptions and easy-to-follow guides for each plant, helping users grow healthy plants indoors and outdoors.
+Comprehensive Plant Information: Provide detailed descriptions and easy-to-follow guides for each plant, helping users grow healthy plants indoors and outdoors. 
