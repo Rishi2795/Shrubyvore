@@ -1,6 +1,6 @@
 # Shrubyvore
 Shrubyvore Project Overview: Gardening Guide Website
-Greenify is a gardening-based guide website designed to help users grow their green thumbs by providing valuable information about indoor and outdoor plants. It features a user-friendly interface with personalized content to guide users in their gardening journey.
+Shrubyvore is a gardening-based guide website designed to help users grow their green thumbs by providing valuable information about indoor and outdoor plants. It features a user-friendly interface with personalized content to guide users in their gardening journey.
 
 Pages and Features:
 Registration & Login Pages:
