@@ -9,7 +9,7 @@ Users can register by providing details like first name, last name, email, and p
 After registration, users can log in to access personalized gardening tips.
 Home Page (About Page):
 
-The home page serves as an introduction to Greenify, providing users with an overview of the platform and its features.
+The home page serves as an introduction to Shrubyvore, providing users with an overview of the platform and its features.
 Designed with a welcoming, nature-inspired aesthetic, the home page introduces the user to the website’s mission of promoting sustainable gardening practices.
 Explore Button:
 
