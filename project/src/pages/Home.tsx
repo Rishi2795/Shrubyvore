@@ -1,135 +1,108 @@
 import React from 'react';
-import { ArrowRight, Leaf, Sun, Droplets } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Leaf, Sprout, Sun, Droplets, ArrowRight } from 'lucide-react';
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-white">
       {/* Hero Section */}
-      <section
-        className="relative h-[600px] bg-cover bg-center"
+      <section className="relative h-[600px] bg-cover bg-center bg-fixed"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
-        }}
-      >
+          backgroundImage: 'url("https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1950&q=80")',
+        }}>
         <div className="absolute inset-0 bg-black bg-opacity-50" />
         <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
-          <div className="text-white">
-            <h1 className="text-5xl font-bold mb-4">
-              Bring Nature Into Your Home
+          <div className="text-white max-w-3xl">
+            <h1 className="text-5xl font-bold mb-6 leading-tight">
+              Cultivate Your Green Thumb with Confidence
             </h1>
-            <p className="text-xl mb-8 max-w-2xl">
-              Transform your space with our carefully curated selection of indoor and outdoor plants.
-              Expert care guidance included with every purchase.
+            <p className="text-xl mb-8">
+              Your comprehensive guide to indoor and outdoor gardening. Join our community of plant enthusiasts and transform your space into a thriving garden.
             </p>
-            <a
-              href="/catalog"
-              className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors"
+            <Link
+              to="/catalog"
+              className="inline-flex items-center bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-colors text-lg font-semibold"
             >
-              Shop Now
+              Explore Plant Almanac
               <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Features Section */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Greenify?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Leaf className="h-8 w-8 text-green-600" />
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Your Journey to Garden Mastery</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Discover everything you need to know about plant care, from soil requirements to seasonal maintenance.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <Sprout className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Expert Plant Selection</h3>
+              <h3 className="text-xl font-semibold mb-4">Comprehensive Plant Guides</h3>
               <p className="text-gray-600">
-                Carefully chosen varieties perfect for your space and lifestyle
+                Detailed care instructions for hundreds of indoor and outdoor plants, tailored to your growing conditions.
               </p>
             </div>
-            <div className="text-center p-6">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <Sun className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Care Guidance</h3>
+              <h3 className="text-xl font-semibold mb-4">Seasonal Care Tips</h3>
               <p className="text-gray-600">
-                Detailed care instructions and ongoing support
+                Stay informed about the best practices for each season, ensuring your plants thrive year-round.
               </p>
             </div>
-            <div className="text-center p-6">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <Droplets className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Healthy Guarantee</h3>
+              <h3 className="text-xl font-semibold mb-4">Personalized Plant Care</h3>
               <p className="text-gray-600">
-                30-day plant health guarantee on all purchases
+                Track your plants' needs and get customized care reminders based on your local climate.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Plants */}
-      <section className="py-16">
+      {/* About Section */}
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Featured Plants</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Monstera Deliciosa",
-                image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                price: "$45"
-              },
-              {
-                name: "Snake Plant",
-                image: "https://images.unsplash.com/photo-1593691509544-d6c29ec2d177?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                price: "$35"
-              },
-              {
-                name: "Peace Lily",
-                image: "https://images.unsplash.com/photo-1593691512429-5d42f232ce1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                price: "$30"
-              }
-            ].map((plant, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <img
-                  src={plant.image}
-                  alt={plant.name}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold mb-2">{plant.name}</h3>
-                  <p className="text-green-600 font-bold">{plant.price}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-16 bg-green-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Sarah Johnson",
-                text: "The plants I received were in perfect condition. The care instructions were very helpful!"
-              },
-              {
-                name: "Michael Chen",
-                text: "Excellent customer service and beautiful, healthy plants. Highly recommended!"
-              },
-              {
-                name: "Emma Davis",
-                text: "My house looks amazing with these plants. Will definitely order more!"
-              }
-            ].map((testimonial, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <p className="text-gray-600 mb-4">"{testimonial.text}"</p>
-                <p className="font-semibold">{testimonial.name}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">About Shrubyvore</h2>
+              <p className="text-xl text-gray-600 mb-6">
+                We're passionate about making gardening accessible to everyone. Whether you're a seasoned gardener or just starting your plant journey, Shrubyvore provides the knowledge and tools you need to succeed.
+              </p>
+              <p className="text-xl text-gray-600 mb-8">
+                Our community of plant enthusiasts and expert gardeners are here to help you every step of the way, sharing tips, answering questions, and celebrating your gardening victories.
+              </p>
+              <Link
+                to="/signup"
+                className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-semibold"
+              >
+                Join Our Community
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <img
+                src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=800&q=80"
+                alt="Garden"
+                className="rounded-lg shadow-md"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1459156212016-c812468e2115?auto=format&fit=crop&w=800&q=80"
+                alt="Indoor plants"
+                className="rounded-lg shadow-md mt-8"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -137,4 +110,4 @@ const Home = () => {
   );
 };
 
-export default Home
+export default Home;
