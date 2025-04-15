@@ -1,15 +1,20 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Leaf, Sprout, Sun, Droplets, ArrowRight } from 'lucide-react';
+import { useUser } from '@clerk/clerk-react';
 
 const Home = () => {
+  const { isSignedIn } = useUser();
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative h-[600px] bg-cover bg-center bg-fixed"
+      <section
+        className="relative h-[600px] bg-cover bg-center bg-fixed"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1950&q=80")',
-        }}>
+          backgroundImage:
+            'url("https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1950&q=80")',
+        }}
+      >
         <div className="absolute inset-0 bg-black bg-opacity-50" />
         <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
           <div className="text-white max-w-3xl">
@@ -83,13 +88,15 @@ const Home = () => {
               <p className="text-xl text-gray-600 mb-8">
                 Our community of plant enthusiasts and expert gardeners are here to help you every step of the way, sharing tips, answering questions, and celebrating your gardening victories.
               </p>
-              <Link
-                to="/signup"
-                className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-semibold"
-              >
-                Join Our Community
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              {!isSignedIn && (
+                <Link
+                  to="/sign-up"
+                  className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-semibold"
+                >
+                  Join Our Community
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              )}
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img
