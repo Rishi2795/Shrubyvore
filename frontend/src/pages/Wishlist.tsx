@@ -1,11 +1,10 @@
 import React from 'react';
+import { useUser } from '@clerk/clerk-react';
 import { Heart, Trash2 } from 'lucide-react';
 
-interface WishlistProps {
-  userName: string;
-}
+const Wishlist: React.FC = () => {
+  const { user } = useUser();
 
-const Wishlist: React.FC<WishlistProps> = ({ userName }) => {
   // Mock wishlist data
   const wishlistItems = [
     {
@@ -58,11 +57,7 @@ const Wishlist: React.FC<WishlistProps> = ({ userName }) => {
                 <div className="mt-2 space-y-1">
                   <p className="text-sm text-gray-600">Added on {item.addedDate}</p>
                   <p className="text-lg font-medium text-green-600">{item.price}</p>
-                  <p className={`text-sm ${
-                    item.availability === "In Stock" 
-                      ? "text-green-600" 
-                      : "text-red-500"
-                  }`}>
+                  <p className={`text-sm ${item.availability === "In Stock" ? "text-green-600" : "text-red-500"}`}>
                     {item.availability}
                   </p>
                 </div>

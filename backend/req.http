@@ -1,0 +1,45 @@
+### 1. Get all plants
+GET http://localhost:3000/api/plants
+Content-Type: application/json
+
+###
+
+### 2. Get details of a specific plant (replace PLANT_ID with actual one from DB)
+GET http://localhost:3000/api/plants/607c35f1b4d4f1f29e27a576
+Content-Type: application/json
+
+
+###
+
+### 3. Sync plant data from Trefle (requires Clerk token)
+POST http://localhost:3000/api/plants/sync
+Content-Type: application/json
+Authorization: Bearer YOUR_CLERK_JWT
+
+### Request Body: (This can be empty as the server is fetching the data from Trefle)
+{}
+
+###
+
+### 4. Add a plant to wishlist (replace PLANT_ID with actual one from DB)
+POST http://localhost:3000/api/wishlist
+Content-Type: application/json
+Authorization: Bearer YOUR_CLERK_JWT
+
+{
+  "plantId": "PLANT_ID"
+}
+
+###
+
+### 5. Get user's wishlist
+GET http://localhost:3000/api/wishlist
+Content-Type: application/json
+Authorization: Bearer YOUR_CLERK_JWT
+
+###
+
+### 6. Remove a plant from wishlist (replace PLANT_ID with actual one)
+DELETE http://localhost:3000/api/wishlist/{PLANT_ID}
+Content-Type: application/json
+Authorization: Bearer YOUR_CLERK_JWT

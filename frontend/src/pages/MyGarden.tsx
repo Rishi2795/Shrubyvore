@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
+import { useUser } from '@clerk/clerk-react';
 import { Flower2 as Plant, Sun, Cloud, CloudRain } from 'lucide-react';
 
-interface MyGardenProps {
-  userName: string;
-}
+const MyGarden: React.FC = () => {
+  const { user } = useUser();
+  const userName = user?.firstName || 'Your';
 
-const MyGarden: React.FC<MyGardenProps> = ({ userName }) => {
   const [weather, setWeather] = useState<'sunny' | 'cloudy' | 'rainy'>('sunny');
   const [sunEnergy, setSunEnergy] = useState(100);
 
-  // Mock garden data
   const gardenPlants = [
     {
       id: 1,
