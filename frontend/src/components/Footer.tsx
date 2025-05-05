@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
+
 const Footer = () => {
   return (
     <footer className="bg-green-900 text-white">

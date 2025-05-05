@@ -1,0 +1,26 @@
+### Register a New User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+### Login User
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+### Fetch Plants from Trefle API (Protected)
+GET http://localhost:5000/api/plants/fetch-plants
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MThhYTMwNTE3MWQwZjg5NzU3ZmY2ZSIsImlhdCI6MTc0NjQ3MDE2OCwiZXhwIjoxNzQ5MDYyMTY4fQ.9e6otQ8Az74biREUndpG6aLS66t-NDR1_K6Vyarh4yU
+### Retrieve Plants from MongoDB (Protected)
+GET http://localhost:5000/api/plants?page=1&limit=5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MThhYTMwNTE3MWQwZjg5NzU3ZmY2ZSIsImlhdCI6MTc0NjQ3MDE2OCwiZXhwIjoxNzQ5MDYyMTY4fQ.9e6otQ8Az74biREUndpG6aLS66t-NDR1_K6Vyarh4yU

@@ -1,13 +1,13 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const plantSchema = new mongoose.Schema({
-  trefleId: { type: String, required: true, unique: true },
+  trefleId: { type: String, required: true, unique: true }, // ID from Trefle API
   name: { type: String, required: true },
-  imageUrl: { type: String },
-  sunlight: { type: String },
-  water: { type: String },
-  careInstructions: { type: String },
+  description: { type: String },
+  soilRequirements: { type: String },
+  wateringInstructions: { type: String },
+  fertilizerRecommendations: { type: String },
+  images: [{ type: String }], // Array of image URLs
 });
 
-const Plant = mongoose.model('Plant', plantSchema);
-export default Plant;
+module.exports = mongoose.model('Plant', plantSchema);

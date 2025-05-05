@@ -1,5 +1,5 @@
-const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
 // Generate JWT
 const generateToken = (id) => {
@@ -35,12 +35,12 @@ const registerUser = async (req, res) => {
   }
 };
 
+// Login user
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
     const user = await User.findOne({ email });
-    console.log('User found:', user); // Debugging log
 
     if (user && (await user.matchPassword(password))) {
       res.status(200).json({
@@ -54,7 +54,7 @@ const loginUser = async (req, res) => {
       res.status(401).json({ message: 'Invalid email or password' });
     }
   } catch (error) {
-    console.error('Error logging in user:', error.message); // Debugging log
+    console.error('Error logging in user:', error.message);
     res.status(500).json({ error: 'Server error' });
   }
 };

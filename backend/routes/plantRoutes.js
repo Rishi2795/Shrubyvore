@@ -1,16 +1,12 @@
-import express from 'express';
-import { getPlantList, getPlantDetails, syncPlantData } from '../controllers/plantController.js';
-import authMiddleware from '../middleware/authMiddleware.js';
-
+const express = require('express');
 const router = express.Router();
+const { protect } = require('../middleware/authmiddleware');
+const { fetchAndSavePlants, getPlants } = require('../controllers/plantcontroller');
 
-// Get all plants (public access)
-router.get('/', getPlantList);
+// Base route for getting all plants with pagination
+router.get('/', protect, getPlants);
 
-// Get details of a specific plant (public access)
-router.get('/:id', getPlantDetails);
+// Route for fetching plants from Trefle API
+router.get('/fetch-plants', protect, fetchAndSavePlants);
 
-// Sync plant data (admin access or similar)
-router.post('/sync', authMiddleware, syncPlantData);
-
-export default router;
+module.exports = router;
