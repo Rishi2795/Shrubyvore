@@ -1,140 +1,99 @@
 import React, { useState } from 'react';
-import { Search, Heart, Filter, X, Sun, Cloud, CloudRain, Flower2 as Plant } from 'lucide-react';
+import { Search, Heart, Filter, Sun, Cloud, CloudRain, Flower2 as Plant } from 'lucide-react';
 
 const plants = [
   {
-    id: 1,
-    name: "Monstera Deliciosa",
-    image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b",
-    category: "Indoor",
-    description: "Popular tropical plant with distinctive split leaves",
-    wateringInterval: "Weekly",
-    sunlight: "Bright indirect",
-    difficulty: "Easy"
+    id: "6818b065d60a0cf5a3769a0e",
+    name: "Absinthe",
+    description: "A perennial herb from the Aster family, known for its aromatic leaves.",
+    soilRequirements: "Well-draining potting soil with organic matter and a slightly alkaline pH.",
+    wateringInstructions: "Water when the top inch of soil feels dry. Avoid waterlogging.",
+    fertilizerRecommendations: "Apply a balanced, water-soluble fertilizer every 4-6 weeks during the growing season.",
+    sunlight: "Full sun to partial shade.",
+    difficulty: "Moderate",
+    tags: ["Outdoor", "Weekly", "Full sun", "Moderate"],
+    images: [
+      "https://bs.plantnet.org/image/o/b2b996e0b80966f37091678808b5fed13c33d04d"
+    ]
   },
   {
-    id: 2,
-    name: "Snake Plant",
-    image: "https://images.unsplash.com/photo-1593691509544-d6c29ec2d177",
-    category: "Indoor",
-    description: "Low-maintenance plant perfect for beginners",
-    wateringInterval: "Bi-weekly",
-    sunlight: "Any",
-    difficulty: "Easy"
+    id: "6818afb20e2cba58d17944bb",
+    name: "Adam-and-eve",
+    description: "A unique plant species requiring proper care and maintenance.",
+    soilRequirements: "Rich, well-draining soil with organic compost.",
+    wateringInstructions: "Keep soil consistently moist but not soggy.",
+    fertilizerRecommendations: "Use a slow-release fertilizer at the start of the growing season.",
+    sunlight: "Bright indirect light.",
+    difficulty: "Easy",
+    tags: ["Indoor", "Daily", "Bright indirect", "Easy"],
+    images: [
+      "https://bs.plantnet.org/image/o/1875712523dd5e698b3173f4d2dab9be583f16d4"
+    ]
   },
   {
-    id: 3,
-    name: "Peace Lily",
-    image: "https://images.unsplash.com/photo-1593691512429-5d42f232ce1e",
-    category: "Indoor",
-    description: "Beautiful flowering plant that purifies air",
-    wateringInterval: "Weekly",
-    sunlight: "Low to bright indirect",
-    difficulty: "Moderate"
+    id: "6818b066d60a0cf5a3769b3a",
+    name: "Adder's-tongue",
+    description: "A delicate plant species with unique foliage.",
+    soilRequirements: "Moist, well-draining soil with a neutral pH.",
+    wateringInstructions: "Water regularly to keep the soil evenly moist.",
+    fertilizerRecommendations: "Feed with a diluted liquid fertilizer every 2 weeks during active growth.",
+    sunlight: "Partial shade to full shade.",
+    difficulty: "Moderate",
+    tags: ["Outdoor", "Weekly", "Partial shade", "Moderate"],
+    images: [
+      "https://bs.plantnet.org/image/o/22e0388b0cdd694b52d92d833f629ed645d002c2"
+    ]
   },
   {
-    id: 4,
-    name: "Fiddle Leaf Fig",
-    image: "https://images.unsplash.com/photo-1598880940942-a41678883f7a",
-    category: "Indoor",
-    description: "Stunning tree-like plant with large, violin-shaped leaves",
-    wateringInterval: "Weekly",
-    sunlight: "Bright indirect",
-    difficulty: "Expert"
+    id: "6818b05cd60a0cf5a3769319",
+    name: "African boxthorn",
+    description: "A hardy shrub with thorny branches and small flowers.",
+    soilRequirements: "Sandy or loamy soil with good drainage.",
+    wateringInstructions: "Water deeply once a week during dry periods.",
+    fertilizerRecommendations: "Apply a general-purpose fertilizer in early spring.",
+    sunlight: "Full sun.",
+    difficulty: "Easy",
+    tags: ["Outdoor", "Weekly", "Full sun", "Easy"],
+    images: [
+      "https://bs.plantnet.org/image/o/41d96e7d1a14e87bae3219da4db7f71fcd8f541d"
+    ]
   },
   {
-    id: 5,
-    name: "String of Pearls",
-    image: "https://images.unsplash.com/photo-1611211232932-da3113c5b960",
-    category: "Indoor",
-    description: "Trailing succulent with pearl-like leaves",
-    wateringInterval: "Bi-weekly",
-    sunlight: "Bright indirect",
-    difficulty: "Moderate"
-  },
-  {
-    id: 6,
-    name: "ZZ Plant",
-    image: "https://images.unsplash.com/photo-1572688484438-313a6e50c333",
-    category: "Indoor",
-    description: "Nearly indestructible plant with glossy leaves",
-    wateringInterval: "Monthly",
-    sunlight: "Low to bright indirect",
-    difficulty: "Easy"
-  },
-  {
-    id: 7,
-    name: "Lavender",
-    image: "https://images.unsplash.com/photo-1471194402529-8e0f5a675de6",
-    category: "Outdoor",
-    description: "Fragrant herb with purple blooms",
-    wateringInterval: "Weekly",
-    sunlight: "Full sun",
-    difficulty: "Moderate"
-  },
-  {
-    id: 8,
-    name: "Japanese Maple",
-    image: "https://images.unsplash.com/photo-1564860924912-0b65ea4d3517",
-    category: "Outdoor",
-    description: "Elegant tree with stunning fall colors",
-    wateringInterval: "Weekly",
-    sunlight: "Partial shade",
-    difficulty: "Expert"
+    id: "6818afb00e2cba58d17942f6",
+    name: "Agrimony",
+    description: "A member of the Rose family, known for its medicinal properties.",
+    soilRequirements: "Well-draining soil with moderate fertility.",
+    wateringInstructions: "Water when the soil feels dry to the touch.",
+    fertilizerRecommendations: "Use an organic fertilizer once a month during the growing season.",
+    sunlight: "Full sun to partial shade.",
+    difficulty: "Easy",
+    tags: ["Outdoor", "Bi-weekly", "Full sun", "Easy"],
+    images: [
+      "https://bs.plantnet.org/image/o/35a2e338466068f8636c1764b8d31f6298dee718"
+    ]
   }
 ];
 
-// Mock garden data
 const gardenPlants = [
   {
-    id: 1,
-    name: "Sunflower Defender",
-    image: "https://images.unsplash.com/photo-1551431009-a802eeec77b1",
+    id: "6818b065d60a0cf5a3769a0e",
+    name: "Absinthe",
+    image: "https://bs.plantnet.org/image/o/b2b996e0b80966f37091678808b5fed13c33d04d",
     health: 100,
-    level: 3,
-    power: "Sun Production",
-    wateringInterval: "Daily",
-    sunlight: "Full sun"
+    level: 1,
+    power: "Growth Boost",
+    wateringInstructions: "Water when the top inch of soil feels dry.",
+    sunlight: "Full sun to partial shade."
   },
   {
-    id: 2,
-    name: "Cactus Guard",
-    image: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a",
-    health: 85,
-    level: 2,
-    power: "Spiky Defense",
-    wateringInterval: "Monthly",
-    sunlight: "Full sun"
-  },
-  {
-    id: 3,
-    name: "Venus Flytrap Sentinel",
-    image: "https://images.unsplash.com/photo-1596719177110-33a3329b4600",
-    health: 95,
-    level: 4,
-    power: "Pest Control",
-    wateringInterval: "Weekly",
-    sunlight: "Bright indirect"
-  },
-  {
-    id: 4,
-    name: "Bamboo Barrier",
-    image: "https://images.unsplash.com/photo-1588253127161-e994edc23a8f",
+    id: "6818afb20e2cba58d17944bb",
+    name: "Adam-and-eve",
+    image: "https://bs.plantnet.org/image/o/1875712523dd5e698b3173f4d2dab9be583f16d4",
     health: 90,
-    level: 3,
-    power: "Rapid Growth",
-    wateringInterval: "Weekly",
-    sunlight: "Partial shade"
-  },
-  {
-    id: 5,
-    name: "Rose Warrior",
-    image: "https://images.unsplash.com/photo-1496062031456-07b8f162a322",
-    health: 75,
-    level: 5,
-    power: "Thorny Defense",
-    wateringInterval: "Weekly",
-    sunlight: "Full sun"
+    level: 2,
+    power: "Healing Aura",
+    wateringInstructions: "Keep soil consistently moist but not soggy.",
+    sunlight: "Bright indirect light."
   }
 ];
 
@@ -147,8 +106,11 @@ const Catalog = () => {
     difficulty: ""
   });
   const [showFilters, setShowFilters] = useState(false);
-  const [myGarden, setMyGarden] = useState<number[]>([]);
-  const [wishlist, setWishlist] = useState<number[]>([]);
+  const [myGarden, setMyGarden] = useState(() => {
+    const savedPlants = localStorage.getItem('gardenPlants');
+    return savedPlants ? JSON.parse(savedPlants).map((plant: any) => plant.id) : [];
+  });
+  const [wishlist, setWishlist] = useState<string[]>([]);
   const [weather, setWeather] = useState<'sunny' | 'cloudy' | 'rainy'>('sunny');
   const [sunEnergy, setSunEnergy] = useState(100);
 
@@ -161,15 +123,34 @@ const Catalog = () => {
     });
   };
 
+  const handleAddToGarden = (plant: typeof plants[0]) => {
+    const savedGardenPlants = localStorage.getItem('gardenPlants');
+    const gardenPlants = savedGardenPlants ? JSON.parse(savedGardenPlants) : [];
+
+    // Check if the plant is already in the garden
+    if (!gardenPlants.some((p: any) => p.id === plant.id)) {
+      const updatedGardenPlants = [...gardenPlants, plant];
+      localStorage.setItem('gardenPlants', JSON.stringify(updatedGardenPlants));
+      setMyGarden((prev) => [...prev, plant.id]); // Update UI state
+    }
+  };
+
+  const handleRemoveFromGarden = (plantId: string) => {
+    const savedGardenPlants = localStorage.getItem('gardenPlants');
+    const gardenPlants = savedGardenPlants ? JSON.parse(savedGardenPlants) : [];
+
+    const updatedGardenPlants = gardenPlants.filter((plant: any) => plant.id !== plantId);
+    localStorage.setItem('gardenPlants', JSON.stringify(updatedGardenPlants));
+    setMyGarden((prev) => prev.filter((id) => id !== plantId)); // Update UI state
+  };
+
   const filteredPlants = plants.filter(plant => {
     const matchesSearch = plant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       plant.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = !filters.category || plant.category === filters.category;
-    const matchesWatering = !filters.wateringInterval || plant.wateringInterval === filters.wateringInterval;
-    const matchesSunlight = !filters.sunlight || plant.sunlight === filters.sunlight;
-    const matchesDifficulty = !filters.difficulty || plant.difficulty === filters.difficulty;
-
-    return matchesSearch && matchesCategory && matchesWatering && matchesSunlight && matchesDifficulty;
+    const matchesFilters = Object.entries(filters).every(([key, value]) =>
+      value === "" || plant.tags.includes(value)
+    );
+    return matchesSearch && matchesFilters;
   });
 
   return (
@@ -240,7 +221,6 @@ const Catalog = () => {
                 <option value="Bright indirect">Bright indirect</option>
                 <option value="Partial shade">Partial shade</option>
                 <option value="Low light">Low light</option>
-                <option value="Any">Any</option>
               </select>
               <select
                 value={filters.difficulty}
@@ -258,7 +238,7 @@ const Catalog = () => {
       </div>
 
       {/* My Garden Section */}
-      <div className="mb-12">
+      {/* <div className="mb-12">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-900">My Garden</h2>
           <div className="flex items-center space-x-6">
@@ -326,22 +306,12 @@ const Catalog = () => {
                       {plant.power}
                     </span>
                   </div>
-                  <div className="mt-4 space-y-2">
-                    <div className="flex items-center text-sm text-gray-500">
-                      <Sun className="h-4 w-4 mr-2" />
-                      {plant.sunlight}
-                    </div>
-                    <div className="flex items-center text-sm text-gray-500">
-                      <Cloud className="h-4 w-4 mr-2" />
-                      {plant.wateringInterval}
-                    </div>
-                  </div>
                 </div>
               </div>
             ))}
           </div>
         )}
-      </div>
+      </div> */}
 
       {/* Plant Almanac Grid */}
       <div>
@@ -353,8 +323,8 @@ const Catalog = () => {
               plant={plant}
               inGarden={myGarden.includes(plant.id)}
               inWishlist={wishlist.includes(plant.id)}
-              onAddToGarden={() => setMyGarden([...myGarden, plant.id])}
-              onRemoveFromGarden={() => setMyGarden(myGarden.filter(id => id !== plant.id))}
+              onAddToGarden={() => handleAddToGarden(plant)}
+              onRemoveFromGarden={() => handleRemoveFromGarden(plant.id)}
               onToggleWishlist={() => {
                 if (wishlist.includes(plant.id)) {
                   setWishlist(wishlist.filter(id => id !== plant.id));
@@ -396,7 +366,7 @@ const PlantCard: React.FC<PlantCardProps> = ({
   <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
     <div className="relative">
       <img
-        src={`${plant.image}?auto=format&fit=crop&w=800&q=80`}
+        src={plant.images[0]} // Use the first image from the images array
         alt={plant.name}
         className="w-full h-64 object-cover"
       />
@@ -414,8 +384,12 @@ const PlantCard: React.FC<PlantCardProps> = ({
       <p className="text-gray-600 mb-4">{plant.description}</p>
       <div className="space-y-2 mb-4">
         <div className="flex items-center text-sm text-gray-500">
+          <span className="font-medium mr-2">Soil:</span>
+          {plant.soilRequirements}
+        </div>
+        <div className="flex items-center text-sm text-gray-500">
           <span className="font-medium mr-2">Watering:</span>
-          {plant.wateringInterval}
+          {plant.wateringInstructions}
         </div>
         <div className="flex items-center text-sm text-gray-500">
           <span className="font-medium mr-2">Sunlight:</span>

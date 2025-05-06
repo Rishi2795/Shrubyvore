@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Flower2 as Plant, Sun, Cloud, CloudRain } from 'lucide-react';
 
 interface MyGardenProps {
@@ -8,28 +8,21 @@ interface MyGardenProps {
 const MyGarden: React.FC<MyGardenProps> = ({ userName }) => {
   const [weather, setWeather] = useState<'sunny' | 'cloudy' | 'rainy'>('sunny');
   const [sunEnergy, setSunEnergy] = useState(100);
+  const [gardenPlants, setGardenPlants] = useState(() => {
+    const savedPlants = localStorage.getItem('gardenPlants');
+    return savedPlants ? JSON.parse(savedPlants) : [];
+  });
 
-  // Mock garden data
-  const gardenPlants = [
-    {
-      id: 1,
-      name: "Sunflower Defender",
-      image: "https://images.unsplash.com/photo-1551431009-a802eeec77b1",
-      health: 100,
-      level: 3,
-      power: "Sun Production",
-      position: { x: 2, y: 1 }
-    },
-    {
-      id: 2,
-      name: "Cactus Guard",
-      image: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a",
-      health: 85,
-      level: 2,
-      power: "Spiky Defense",
-      position: { x: 3, y: 2 }
+  useEffect(() => {
+    const savedPlants = localStorage.getItem('gardenPlants');
+    if (savedPlants) {
+      setGardenPlants(JSON.parse(savedPlants));
     }
-  ];
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('gardenPlants', JSON.stringify(gardenPlants));
+  }, [gardenPlants]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -38,7 +31,7 @@ const MyGarden: React.FC<MyGardenProps> = ({ userName }) => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              {userName}'s Garden Defense
+              {userName}'s Garden
             </h1>
             <p className="text-gray-600">Level 5 Garden Master</p>
           </div>
@@ -70,67 +63,34 @@ const MyGarden: React.FC<MyGardenProps> = ({ userName }) => {
           </div>
         </div>
 
-        {/* Garden Grid */}
-        <div className="grid grid-cols-6 gap-4 mb-8">
-          {Array.from({ length: 24 }).map((_, index) => {
-            const plant = gardenPlants.find(
-              p => p.position.x === (index % 6) + 1 && p.position.y === Math.floor(index / 6) + 1
-            );
-
-            return (
-              <div
-                key={index}
-                className={`aspect-square rounded-lg ${
-                  plant ? 'bg-green-100' : 'bg-brown-100 border-2 border-dashed border-brown-200'
-                } flex items-center justify-center relative cursor-pointer hover:bg-green-50 transition-colors`}
-              >
-                {plant ? (
-                  <div className="absolute inset-0 p-2">
-                    <div className="relative h-full">
-                      <img
-                        src={plant.image}
-                        alt={plant.name}
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-1 rounded-b-lg">
-                        <div className="h-1 bg-gray-200 rounded-full">
-                          <div
-                            className="h-full bg-green-500 rounded-full"
-                            style={{ width: `${plant.health}%` }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <Plant className="h-6 w-6 text-green-300" />
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Plant Inventory */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Plant Defenders</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {gardenPlants.map((plant) => (
-              <div key={plant.id} className="bg-white rounded-lg shadow-md p-4">
-                <div className="flex items-center space-x-4">
-                  <img
-                    src={plant.image}
-                    alt={plant.name}
-                    className="w-16 h-16 rounded-lg object-cover"
-                  />
-                  <div>
-                    <h3 className="font-semibold">{plant.name}</h3>
-                    <p className="text-sm text-gray-600">Level {plant.level}</p>
-                    <p className="text-sm text-green-600">{plant.power}</p>
+        {/* Garden Plants */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {gardenPlants.map((plant) => (
+            <div key={plant.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="relative">
+                <img
+                  src={plant.images[0]} // Ensure the first image is displayed
+                  alt={plant.name}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2">
+                  <div className="h-2 bg-gray-200 rounded-full">
+                    <div
+                      className="h-full bg-green-500 rounded-full"
+                      style={{ width: `${plant.health || 100}%` }} // Default health to 100 if not present
+                    />
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="p-4">
+                <h3 className="text-lg font-semibold">{plant.name}</h3>
+                <p className="text-sm text-gray-600">{plant.description}</p>
+                <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                  {plant.power || 'Growth Boost'} {/* Default power if not present */}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
